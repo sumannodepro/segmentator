@@ -2,7 +2,7 @@ name: Build and Push Docker image to ECR
 
 on:
   push:
-    branches: [ main ] # Triggers when you push to main branch
+    branches: [ main ]
 
 jobs:
   build-and-push:
@@ -22,7 +22,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -30,8 +30,8 @@ jobs:
 
       - name: Build, tag, and push Docker image
         env:
-          ECR_REGISTRY: 703671899809.dkr.ecr.ap-south-1.amazonaws.com
-          ECR_REPOSITORY: dental-nnunet-gpu
+          ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
