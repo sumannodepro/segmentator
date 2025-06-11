@@ -1,0 +1,5 @@
+venv
+nnUNet_data/nnUNet_results/Dataset112_DentalSegmentator_v100/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_0/checkpoint_final.pth
+input/data_0000.nii.gz
+weights/Dataset112_DentalSegmentator_v100/nnUNetTrainer__nnUNetPlans__3d_fullres/fold_0/checkpoint_final.pth
+weights/
