@@ -41,4 +41,5 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
       - name: Image digest
-        run: echo "Docker image pushed: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        run: |
+          echo "Docker image pushed: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
